@@ -13,6 +13,9 @@ function App() {
     return selectedCripto === id;
   }
 
+  const findCripto = () {
+    return 
+  }
 
   const getCoins = () => {
     return fetch(CRIPTO_LIST)
@@ -32,14 +35,15 @@ function App() {
     
       <aside className="side-list">
         {
-         <SideList  isSelectedCripto={isSelectedCripto}
+         <SideList  isSelectedCripto={isSelectedCripto} setSelectedCripto={setSelectedCripto}
          criptoList={criptoList}
          
          /> } 
       </aside>
       <main className="main-detail">
         {selectedCripto
-          ? "Create the main detail component here"
+          ? <MainDetail
+          selectedCripto = {selectedCripto}/>
           : "Select a coin bro!"}
         {/* News feed component needs to go here */}
       </main>

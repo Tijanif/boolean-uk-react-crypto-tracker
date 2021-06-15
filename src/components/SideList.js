@@ -1,5 +1,5 @@
 import SideListItem from './SideListItem';
-const SideList = ({ isSelectedCripto, selectCripto, criptoList }) => {
+const SideList = ({ isSelectedCripto, setSelectedCripto, criptoList }) => {
   return (
     <ul>
       {criptoList.map((item) => {
@@ -7,7 +7,7 @@ const SideList = ({ isSelectedCripto, selectCripto, criptoList }) => {
           <SideListItem
             key={item.id}
             isSelectedCripto={isSelectedCripto}
-            selectCripto={selectCripto}
+            setSelectedCripto={setSelectedCripto}
             item={item}
           />
         );
