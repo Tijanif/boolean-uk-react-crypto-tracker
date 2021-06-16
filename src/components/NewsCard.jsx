@@ -8,6 +8,8 @@ function NewsLink({ url }) {
 }
 
 export default function NewsCard({ newsItem }) {
+
+
   const { description } = newsItem;
   return (
     <article className="newsfeed__card">
