@@ -13,8 +13,11 @@ function App() {
     return selectedCrypto === id;
   }
 
+  const foundCrypto = cryptoList.find((item) => item.id === selectedCrypto )
   useEffect(() => {
-    return fetch(CRYPTO_LIST).then(resp => resp.json()).then(listOfCrypto => setCryptoList(listOfCrypto))
+    return fetch(CRYPTO_LIST)
+    .then(resp => resp.json())
+    .then(listOfCrypto => setCryptoList(listOfCrypto))
   }, [])
   
   return (
@@ -22,13 +25,16 @@ function App() {
     <>
       <aside className="side-list">
         {/* This is where the side list goes */
-        cryptoList.map(item => {
-          return <SideListItem isSelectedCrypto={isSelectedCrypto} selectedCrypto={selectedCrypto} item={item}  />
+        <ul>
+        {cryptoList.map(item => {
+          return <SideListItem isSelectedCrypto={isSelectedCrypto} setSelectedCrypto={setSelectedCrypto} item={item}  />
         })}
+        </ul>
+         }
       </aside>
       <main className="main-detail">
         {selectedCrypto
-          ? "Create the main detail component here"
+          ? <MainDetail  foundCrypto={foundCrypto} />
           : "Select a coin bro!"}
         {/* News feed component needs to go here */}
       </main>
