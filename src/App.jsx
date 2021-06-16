@@ -42,18 +42,18 @@ function App() {
          }
       </aside>
       <main className="main-detail">
+      
         {selectedCrypto
           ? <MainDetail  foundCrypto={foundCrypto} />
           : "Select a coin bro!"}
-        {/* News feed component needs to go here  
-        */
+      
        <ul className="newsfeed">
          {
        listOfCryptoNews.map(newsItem => {
          return <NewsCard newsItem={newsItem} />
        })}
          </ul> 
-        }
+        
       </main>
     </>
   );

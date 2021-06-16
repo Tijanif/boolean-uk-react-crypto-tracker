@@ -20,7 +20,7 @@ function convertToSeconds(dateValue) {
 
 export default function MainDetail({foundCrypto}) {
 
-  const [currentTime, setCurrentTime] = useState('')
+  const [currentTime, setCurrentTime] = useState(getCurrentTime())
 
   const dateValue = foundCrypto.last_updated
 
