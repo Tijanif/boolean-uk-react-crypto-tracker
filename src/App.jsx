@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import SideListItem from './components/SideListItem'
 import MainDetail from "./components/MainDetail";
 import { CRYPTO_LIST } from "./constants";
 
@@ -21,7 +21,10 @@ function App() {
     /* These (<> </>) are called React Fragments, and allow us to return more than one top element */
     <>
       <aside className="side-list">
-        {/* This is where the side list goes */}
+        {/* This is where the side list goes */
+        cryptoList.map(item => {
+          return <SideListItem isSelectedCrypto={isSelectedCrypto} selectedCrypto={selectedCrypto} item={item}  />
+        })}
       </aside>
       <main className="main-detail">
         {selectedCrypto

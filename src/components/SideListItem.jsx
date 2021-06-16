@@ -1,10 +1,10 @@
-export default function SideListItem({ isSelectedCrypto, selectCrypto, item }) {
+export default function SideListItem({ isSelectedCrypto, selectedCrypto, item }) {
   const { id, name } = item;
   return (
     <li>
       <button
         className={isSelectedCrypto(id) ? "selected" : ""}
-        onClick={() => selectCrypto(id)}
+        onClick={() => selectedCrypto(id)}
       >
         {name}
       </button>
