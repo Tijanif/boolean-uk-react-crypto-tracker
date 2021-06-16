@@ -1,15 +1,10 @@
-
-export default function SideListItem({
-  isSelectedCripto,
-  setSelectedCripto,
-  item: { id, name }
-}) {
-
+export default function SideListItem({ isSelectedCripto, selectCripto, item }) {
+  const { id, name } = item;
   return (
-    <li key={id}>
+    <li>
       <button
         className={isSelectedCripto(id) ? "selected" : ""}
-        onClick={() => setSelectedCripto(id)}
+        onClick={() => selectCripto(id)}
       >
         {name}
       </button>

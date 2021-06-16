@@ -16,21 +16,15 @@ function convertToSeconds(dateValue) {
     : dateValue;
 }
 
-export default function MainDetail({selectedCripto}) {
+export default function MainDetail() {
   return (
     <>
       <section className="main-detail__central">
-      <div class="main-detail__update">
-    
-  </div>
-  <div class="main-detail__name">
-    <h2>{}</h2>
-    <p><span class="small">a.k.a </span>btc</p>
-  </div>
-  <div class="main-detail__price">
-    <p>£27979</p>
-    <p>Updated 1191 seconds ago</p>
-  </div>
+        <div className="main-detail__update">
+          {/* This part is for the challenge */}
+        </div>
+        <div className="main-detail__name"></div>
+        <div className="main-detail__price"></div>
       </section>
     </>
   );
