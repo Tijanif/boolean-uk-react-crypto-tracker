@@ -27,7 +27,7 @@ function App() {
         {/* This is where the side list goes */
         <ul>
         {cryptoList.map(item => {
-          return <SideListItem isSelectedCrypto={isSelectedCrypto} setSelectedCrypto={setSelectedCrypto} item={item}  />
+          return <SideListItem isSelectedCrypto={isSelectedCrypto} setSelectedCrypto={setSelectedCrypto} selectedCrypto={selectedCrypto} item={item}  />
         })}
         </ul>
          }

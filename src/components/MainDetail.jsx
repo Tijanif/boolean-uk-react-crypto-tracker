@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { getCryptoUpdateUrl } from "../constants";
 
+
 // This function give us the current time in seconds
-function currentTime() {
+function getCurrentTime() {
   return Math.round(Date.now() / 1000);
 }
+
 
 /*
   Use this function with the updated_at timestamp you get from each coin item in the API response
@@ -17,18 +19,37 @@ function convertToSeconds(dateValue) {
 }
 
 export default function MainDetail({foundCrypto}) {
+
+  const [currentTime, setCurrentTime] = useState('')
+
+  const dateValue = foundCrypto.last_updated
+
+  const seconds =  convertToSeconds(dateValue)
+  const timeToDisplay = currentTime - seconds
+
+  useEffect(() => {
+     const stopInterval = setInterval(() => {
+       setCurrentTime(getCurrentTime())
+     }, 1000);
+     return (() => {
+       clearInterval(stopInterval)
+     })
+  },[])
+
+ 
+ 
   return (
     <>
-<section class="main-detail__central">
-  <div class="main-detail__update">
+<section className="main-detail__central">
+  <div className="main-detail__update">
   </div>
-  <div class="main-detail__name">
+  <div className="main-detail__name">
     <h2>{foundCrypto.name}</h2>
-    <p><span class="small">a.k.a </span>{foundCrypto.symbol}</p>
+    <p><span className="small">a.k.a </span>{foundCrypto.symbol}</p>
   </div>
-  <div class="main-detail__price">
-    <p>{`£ ${foundCrypto.current_price}`}</p>
-    <p>Updated 1191 seconds ago</p>
+  <div className="main-detail__price">
+    <p>{`£ ${foundCrypto.current_price.toFixed(2)}`}</p>
+    <p>{`Updated ${timeToDisplay} seconds ago`}</p>
   </div>
 </section>
     </>
